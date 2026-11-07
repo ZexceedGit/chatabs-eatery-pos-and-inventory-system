@@ -1,3 +1,6 @@
+.features {
+   margin-bottom:var(--section-spacing);
+}
 .features .header {
     display:flex;
     justify-content: space-between;
@@ -35,6 +38,7 @@
 .features-grid .features-card h2{
    font-size:clamp(20px, 2vw, 28px);
    margin-bottom:10px;
+   font-weight:600;
 }
 .features-grid .features-card p {
     font-size:15px;
@@ -78,4 +82,101 @@
         transparent 45%
     );
     z-index: -1;
+}
+@media (max-width: 992px) {
+    .features-grid {
+        grid-auto-rows: 280px;
+        gap: 15px;
+    }
+
+    .features-grid .features-card {
+        padding: 25px;
+    }
+
+    .features-grid .features-card:first-child {
+        grid-row: span 2;
+    }
+
+    .features .header {
+        gap: 20px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .features .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 30px;
+    }
+
+    .features .header h1 {
+        font-size: 30px;
+    }
+
+    .features .header p {
+        max-width: 100%;
+        font-size: 15px;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 280px;
+        gap: 15px;
+    }
+
+    .features-grid .features-card:first-child {
+        grid-row: auto;
+    }
+
+    .features-grid .features-card {
+        padding: 25px;
+    }
+
+    .features-grid .features-card h2 {
+        font-size: 23px;
+    }
+
+    .features-grid .features-card p {
+        font-size: 14px;
+    }
+
+    .features-grid .features-card .card-link {
+        width: 42px;
+        height: 42px;
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .features .header h1 {
+        font-size: 26px;
+    }
+
+    .features-grid {
+        grid-auto-rows: 250px;
+        gap: 12px;
+    }
+
+    .features-grid .features-card {
+        padding: 20px;
+        border-radius: 15px;
+    }
+
+    .features-grid .features-card h2 {
+        font-size: 21px;
+    }
+
+    .features-grid .features-card p {
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+    .features-grid .features-card .card-link {
+        width: 38px;
+        height: 38px;
+        top: 12px;
+        right: 12px;
+    }
 }
