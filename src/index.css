@@ -1,13 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+:root {
+  --muted:#64748B; 
+  --secondary-font:"Pacifico";
+  --first-fire-gradient:linear-gradient(185deg, #ff5722, #ffc107);
+  --second-fire-gradient:linear-gradient(185deg, #ffc107, #ff5722);
+}
 *, *::before, *::after {
   margin:0;
   padding:0;
+  font-family:"Poppins", sans-serif;
   box-sizing:border-box;
   text-decoration:none;
   outline:none;
+}
+.ignited1 {
+  background:var(--first-fire-gradient);
+  background-clip:text;
+  color:transparent;
+}
+.ignited2 {
+  background: var(--second-fire-gradient);
+  background-clip:text;
+  color:transparent;
 }
 a {
   color:inherit;
 }
 h1,h2,h3,h4 {
-  font-weight:900;
+  font-weight:700;
+}
+.container-hero {
+  max-width:95%;
+  margin:0 auto;
+  padding:clamp(20px, 4vw, 48px);
 }
