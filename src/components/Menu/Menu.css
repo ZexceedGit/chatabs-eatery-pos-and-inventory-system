@@ -13,9 +13,9 @@
     margin-bottom:12px;
 }
 .explore-header p {
-    max-width:450px;
+    max-width:500px;
     color:var(--muted);
-    font-size:clamp(17px, 1vw, 20px);
+   font-size:clamp(17px, 1.5vw, 20px);
     line-height:1.7;
 }
 .explore-header button {
