@@ -6,6 +6,7 @@
   --first-fire-gradient:linear-gradient(185deg, #ff5722, #ffc107);
   --second-fire-gradient:linear-gradient(185deg, #ffc107, #ff5722);
   --section-spacing: clamp(60px, 8vw, 110px);
+  --prm-color:#17140F;
 }
 *, *::before, *::after {
   margin:0;
@@ -31,7 +32,7 @@ a {
 h1,h2,h3,h4 {
   font-weight:700;
 }
-.container-hero {
+.container {
   max-width:95%;
   margin:0 auto;
   padding:clamp(20px, 4vw, 48px);
