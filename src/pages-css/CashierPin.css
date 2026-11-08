@@ -1,0 +1,504 @@
+
+.cashier-page {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
+    width: 100%;
+    background: #fff;
+    overflow: hidden;
+}
+
+.cashier-page .cashier-left {
+    position: relative;
+    min-height: 100vh;
+    background: url("../assets/images/Article1.png") center / cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: clamp(30px, 5vw, 65px);
+    color: #fff;
+    overflow: hidden;
+}
+
+.cashier-page .cashier-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.12) 0%,
+        rgba(0, 0, 0, 0.2) 40%,
+        rgba(0, 0, 0, 0.75) 100%
+    );
+    z-index: 0;
+}
+
+.cashier-page .cashier-logo,
+.cashier-page .cashier-left-content {
+    position: relative;
+    z-index: 1;
+}
+
+.cashier-page .cashier-logo img {
+    display: block;
+    width: 95px;
+    height: auto;
+    object-fit: contain;
+}
+
+.cashier-page .cashier-left-content {
+    width: 100%;
+    max-width: 480px;
+    margin-top: auto;
+}
+
+.cashier-page .cashier-left-content h2 {
+    max-width: 450px;
+    font-size: clamp(35px, 4vw, 55px);
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 18px;
+}
+
+.cashier-page .cashier-left-content > p {
+    max-width: 400px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.cashier-page .cashier-status-divider {
+    width: 100%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.3);
+    margin: 35px 0 25px;
+}
+
+.cashier-page .cashier-status {
+    display: flex;
+    align-items: center;
+    gap: clamp(20px, 3vw, 45px);
+}
+
+.cashier-page .status-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cashier-page .status-item h4 {
+    font-size: 14px;
+    font-weight: 700;
+    margin-top: 4px;
+}
+
+.cashier-page .status-item p {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.65);
+}
+
+.cashier-page .status-indicator {
+    width: 9px;
+    height: 9px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #54d88b;
+    box-shadow: 0 0 10px rgba(84, 216, 139, 0.5);
+}
+
+.cashier-page .cashier-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 0;
+    min-height: 100vh;
+    padding: 35px clamp(30px, 5vw, 75px);
+    position: relative;
+}
+
+.cashier-page .cashier-datetime {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 15px;
+    color: var(--muted);
+}
+
+.cashier-page .cashier-datetime span {
+    font-size: 12px;
+}
+
+.cashier-page .cashier-datetime h4 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #222;
+}
+
+.cashier-page .cashier-content {
+    width: 100%;
+    max-width: 390px;
+    margin: 35px auto;
+}
+
+.cashier-page .cashier-heading {
+    margin-bottom: 30px;
+}
+
+.cashier-page .cashier-label {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+    color: var(--ignited);
+    margin-bottom: 12px;
+}
+
+.cashier-page .cashier-heading h1 {
+    font-size: clamp(30px, 3vw, 39px);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 12px;
+}
+
+.cashier-page .cashier-heading > p {
+    max-width: 350px;
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+.cashier-page .employee-selection {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.cashier-page .employee-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 9px;
+    min-width: 0;
+    padding: 5px 2px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.cashier-page .employee-option > span {
+    width: 55px;
+    height: 55px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: #f2f0ed;
+    color: #555;
+    font-size: 16px;
+    font-weight: 700;
+    border: 2px solid transparent;
+    transition: 0.3s ease;
+}
+
+.cashier-page .employee-option p {
+    font-size: 11px;
+    font-weight: 600;
+    color: #777;
+    white-space: nowrap;
+}
+
+.cashier-page .employee-option:hover > span {
+    background: #eae5df;
+}
+
+.cashier-page .employee-option.active > span {
+    background: var(--ignited);
+    color: #fff;
+    border-color: var(--ignited);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.cashier-page .employee-option.active p {
+    color: #171717;
+}
+
+.cashier-page .pin-section {
+    text-align: center;
+    margin-bottom: 22px;
+}
+
+.cashier-page .pin-label {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 17px;
+}
+
+.cashier-page .pin-label strong {
+    color: #222;
+    font-weight: 700;
+}
+
+.cashier-page .pin-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 17px;
+}
+
+.cashier-page .pin-indicators span {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 1.5px solid #ccc;
+    background: transparent;
+}
+
+.cashier-page .cashier-keypad {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 100%;
+    margin: 0 0 22px;
+}
+
+.cashier-page .cashier-keypad button {
+    height: 53px;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    background: #fafafa;
+    color: #222;
+    font-size: 19px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.cashier-page .cashier-keypad button:hover {
+    background: #f0ede9;
+    border-color: #ddd;
+}
+
+.cashier-page .cashier-keypad button:active {
+    transform: scale(0.96);
+}
+
+.cashier-page .cashier-keypad .key-action {
+    font-size: 12px;
+    color: #777;
+    font-weight: 600;
+}
+
+.cashier-page .clock-in-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 16px 20px;
+    border: none;
+    border-radius: 10px;
+    background: #171717;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.cashier-page .clock-in-button:hover {
+    background: var(--ignited);
+}
+
+.cashier-page .clock-in-button span {
+    font-size: 20px;
+}
+
+.cashier-page .manager-help {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin-top: 22px;
+}
+
+.cashier-page .manager-help p,
+.cashier-page .manager-help a {
+    font-size: 13px;
+}
+
+.cashier-page .manager-help p {
+    color: var(--muted);
+}
+
+.cashier-page .manager-help a {
+    color: var(--ignited);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.cashier-page .manager-help a:hover {
+    text-decoration: underline;
+}
+
+.cashier-page .cashier-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding-top: 15px;
+}
+
+.cashier-page .cashier-footer p,
+.cashier-page .cashier-footer span {
+    font-size: 10px;
+    color: #aaa;
+}
+
+.cashier-page .cashier-footer span {
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 990px) {
+    .cashier-page {
+        grid-template-columns: 0.9fr 1.1fr;
+    }
+
+    .cashier-page .cashier-left {
+        padding: 35px;
+    }
+
+    .cashier-page .cashier-right {
+        padding: 30px;
+    }
+
+    .cashier-page .cashier-left-content h2 {
+        font-size: 38px;
+    }
+
+    .cashier-page .cashier-status {
+        gap: 20px;
+    }
+
+    .cashier-page .cashier-status .status-item {
+        gap: 7px;
+    }
+
+    .cashier-page .cashier-content {
+        max-width: 100%;
+    }
+
+    .cashier-page .employee-selection {
+        gap: 6px;
+    }
+
+    .cashier-page .employee-option > span {
+        width: 48px;
+        height: 48px;
+    }
+}
+
+@media (max-width: 700px) {
+    .cashier-page {
+        grid-template-columns: 1fr;
+        overflow: visible;
+    }
+
+    .cashier-page .cashier-left {
+        min-height: 420px;
+        padding: 30px 7%;
+    }
+
+    .cashier-page .cashier-logo img {
+        width: 85px;
+    }
+
+    .cashier-page .cashier-left-content {
+        margin-top: 90px;
+    }
+
+    .cashier-page .cashier-left-content h2 {
+        font-size: 35px;
+    }
+
+    .cashier-page .cashier-left-content > p {
+        font-size: 13px;
+    }
+
+    .cashier-page .cashier-status-divider {
+        margin: 22px 0 18px;
+    }
+
+    .cashier-page .cashier-status {
+        gap: 30px;
+    }
+
+    .cashier-page .cashier-right {
+        min-height: 750px;
+        padding: 30px 7%;
+    }
+
+    .cashier-page .cashier-content {
+        max-width: 390px;
+        margin: 45px auto;
+    }
+
+    .cashier-page .cashier-heading h1 {
+        font-size: 32px;
+    }
+
+    .cashier-page .cashier-footer {
+        padding-top: 15px;
+    }
+}
+
+@media (max-width: 380px) {
+    .cashier-page .cashier-left {
+        min-height: 390px;
+        padding: 25px 6%;
+    }
+
+    .cashier-page .cashier-left-content h2 {
+        font-size: 30px;
+    }
+
+    .cashier-page .cashier-status {
+        gap: 17px;
+    }
+
+    .cashier-page .status-item h4 {
+        font-size: 11px;
+    }
+
+    .cashier-page .status-item p {
+        font-size: 10px;
+    }
+
+    .cashier-page .cashier-right {
+        padding: 25px 6%;
+    }
+
+    .cashier-page .cashier-datetime span {
+        font-size: 10px;
+    }
+
+    .cashier-page .employee-option > span {
+        width: 45px;
+        height: 45px;
+        font-size: 13px;
+    }
+
+    .cashier-page .employee-option p {
+        font-size: 10px;
+    }
+
+    .cashier-page .cashier-keypad {
+        gap: 8px;
+    }
+
+    .cashier-page .cashier-keypad button {
+        height: 49px;
+    }
+
+    .cashier-page .cashier-footer p,
+    .cashier-page .cashier-footer span {
+        font-size: 9px;
+    }
+}
