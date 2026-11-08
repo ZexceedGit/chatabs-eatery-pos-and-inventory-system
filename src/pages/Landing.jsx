@@ -1,3 +1,4 @@
+import Hero from '../components/Hero/Hero'
 import Features from '../components/Features/Features';
 import Menu from '../components/Menu/Menu';
 import Specialty from '../components/Specialty/Specialty';
@@ -7,10 +8,13 @@ import Articles from '../components/Articles/Articles';
 import Reviews from '../components/Reviews/Reviews';
 import Location from '../components/Location/Location';
 import Footer from '../components/Footer/Footer';
-const Hero = () => {
+import Navbar from '../components/Navbar/Navbar'
+const Landing = () => {
     return ( 
         <>
+         <Navbar/>
          <div className="container">
+            <Hero />
              <Features/>
              <Menu/>
              <Specialty/>
@@ -25,4 +29,4 @@ const Hero = () => {
      );
 }
  
-export default Hero;
+export default Landing;

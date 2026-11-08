@@ -88,9 +88,7 @@
     z-index: -1;
 }
 @media (max-width: 990px) {
-    .articles {
-        padding: 65px 5%;
-    }
+  
 
     .articles-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -101,9 +99,7 @@
     }
 }
 @media (max-width: 600px) {
-    .articles {
-        padding: 50px 6%;
-    }
+   
 
     .articles-header {
         flex-direction: column;
