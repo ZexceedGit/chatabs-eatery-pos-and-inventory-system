@@ -3,6 +3,7 @@ import Menu from '../components/Menu/Menu'
 import Specialty from '../components/Specialty/Specialty';
 import Gallery from '../components/Gallery/Gallery';
 import Story from '../components/Story/Story';
+import Articles from '../components/Articles/Articles';
 const Hero = () => {
     return ( 
         <>
@@ -12,6 +13,7 @@ const Hero = () => {
              <Specialty/>
              <Gallery/>
              <Story />
+             <Articles/>
          </div>
         </>
      );

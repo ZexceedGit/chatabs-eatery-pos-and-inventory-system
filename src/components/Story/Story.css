@@ -29,7 +29,7 @@
 .story-header .head-title h1, .story-header .head-title span {
     font-family: var(--secondary-font);
     font-weight:500;
-    font-size:clamp(40px, 3vw, 40px);
+    font-size:clamp(40px, 4vw, 50px);
 }
 .story-header .head-title .full {
     padding: 14px 24px;
