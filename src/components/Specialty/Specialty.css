@@ -25,6 +25,7 @@
     grid-template-columns: 1fr 1.3fr 1fr;
     grid-template-rows: repeat(2,1fr);
     align-items: center;
+    justify-content: center;
     gap:35px;
     row-gap:100px;
     min-height: 750px;

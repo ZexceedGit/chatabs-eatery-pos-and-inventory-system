@@ -1,5 +1,5 @@
 import './Specialty.css'
-import specialty1 from '../../assets/images/Specialty1.png'
+import specialty1 from '../../assets/images/Specialty2.png'
 const Specialty = () => {
     return ( 
         <>

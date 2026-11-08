@@ -5,6 +5,7 @@ import Gallery from '../components/Gallery/Gallery';
 import Story from '../components/Story/Story';
 import Articles from '../components/Articles/Articles';
 import Reviews from '../components/Reviews/Reviews'
+import Location from '../components/Location/Location'
 const Hero = () => {
     return ( 
         <>
@@ -16,6 +17,7 @@ const Hero = () => {
              <Story />
              <Articles/>
              <Reviews/>
+             <Location />
          </div>
         </>
      );
