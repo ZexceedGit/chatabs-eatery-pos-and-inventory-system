@@ -4,6 +4,7 @@ import Specialty from '../components/Specialty/Specialty';
 import Gallery from '../components/Gallery/Gallery';
 import Story from '../components/Story/Story';
 import Articles from '../components/Articles/Articles';
+import Reviews from '../components/Reviews/Reviews'
 const Hero = () => {
     return ( 
         <>
@@ -14,6 +15,7 @@ const Hero = () => {
              <Gallery/>
              <Story />
              <Articles/>
+             <Reviews/>
          </div>
         </>
      );
