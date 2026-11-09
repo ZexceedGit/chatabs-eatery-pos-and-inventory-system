@@ -1,0 +1,221 @@
+
+.story-expanded {
+    max-width: 95%;
+    margin: 0 auto;
+    padding: clamp(20px, 4vw, 48px);
+}
+
+.story-expanded .title {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 60px;
+    align-items: center;
+}
+
+.story-expanded .title h1 {
+    font-size: clamp(40px, 5vw, 60px);
+}
+
+.story-expanded .title p {
+    color: var(--muted);
+    font-size: clamp(20px, 1vw, 25px);
+    max-width: 800px;
+}
+
+.story-expanded .main-story {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+    margin-bottom: 140px;
+    padding-bottom: 110px;
+    border-bottom: 1px solid var(--muted);
+}
+
+.story-expanded .main-story .story-text h2 {
+    font-size: clamp(25px, 2vw, 30px);
+    margin-bottom: 10px;
+}
+
+.story-expanded .main-story .story-text p {
+    color: var(--muted);
+    font-size: clamp(16px, .5vw, 17px);
+    line-height: 1.8;
+}
+
+.story-expanded .main-story .story-text .text-paragraph {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.story-expanded .main-story .story-image {
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+    height: 400px;
+    justify-self: end;
+}
+
+.story-expanded .main-story .story-image::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    bottom: -20px;
+    right: -20px;
+    height: 90%;
+    width: 80%;
+    background-color: #ffc107;
+}
+
+.story-expanded .main-story .story-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.story-expanded .story-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 180px;
+    margin-bottom: 100px;
+}
+
+.story-expanded .story-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+    align-items: center;
+}
+
+.story-expanded .story-card .mini-image {
+    width: 100%;
+    height: 400px;
+    position: relative;
+}
+
+.story-expanded .story-card .mini-image::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    bottom: -15px;
+    left: -15px;
+    height: 80%;
+    width: 80%;
+    background-color: #ffc107;
+}
+
+.story-expanded .story-card .mini-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.story-expanded .story-card .mini-text {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px 0;
+}
+
+.story-expanded .story-card .mini-text h1 {
+    font-size: clamp(80px, 12vw, 150px);
+    color: transparent;
+    letter-spacing:-0.055em;
+    -webkit-text-stroke:3px  black;
+    font-weight:900;
+}
+
+.story-expanded .story-card .mini-text h2 {
+    font-size: clamp(24px, 2vw, 30px);
+}
+
+.story-expanded .story-card .mini-text p {
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.9;
+}
+
+.story-expanded .story-card:nth-child(even) .mini-image {
+    order: 2;
+}
+
+.story-expanded .story-card:nth-child(even) .mini-text {
+    order: 1;
+}
+.story-expanded .story-card:nth-child(even) .mini-image::before {
+    left: auto;
+    right: -15px;
+}
+
+@media (max-width: 768px) {
+    .story-expanded .main-story {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin-bottom: 100px;
+        padding-bottom: 50px;
+    }
+
+    .story-expanded .main-story .story-image {
+        height: 300px;
+        justify-self: center;
+    }
+
+    .story-expanded .story-timeline {
+        gap: 100px;
+    }
+
+    .story-expanded .story-card {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .story-expanded .story-card .mini-image {
+        height: 280px;
+    }
+
+    .story-expanded .story-card:nth-child(even) .mini-image {
+        order: 1;
+    }
+
+    .story-expanded .story-card:nth-child(even) .mini-text {
+        order: 2;
+    }
+}
+
+@media (max-width: 480px) {
+    .story-expanded {
+        padding: 20px 15px;
+    }
+
+    .story-expanded .title {
+        margin-bottom: 40px;
+    }
+
+    .story-expanded .main-story {
+        margin-bottom: 80px;
+    }
+
+    .story-expanded .main-story .story-image {
+        height: 250px;
+    }
+
+    .story-expanded .story-timeline {
+        gap: 75px;
+        margin-bottom: 60px;
+    }
+
+    .story-expanded .story-card {
+        gap: 25px;
+    }
+
+    .story-expanded .story-card .mini-image {
+        height: 230px;
+    }
+
+    .story-expanded .story-card .mini-text {
+        gap: 10px;
+    }
+}
