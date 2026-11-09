@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 :root {
-  --muted:#64748B; 
+--muted: #8A8175;
   --secondary-font:"Pacifico";
   --first-fire-gradient:linear-gradient(185deg, #ff5722, #ffc107);
   --second-fire-gradient:linear-gradient(185deg, #ffc107, #ff5722);
