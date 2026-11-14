@@ -1,0 +1,257 @@
+.article-page {
+    width: 100%;
+    background: #fff;
+    color: #222;
+    padding: 65px 7% 100px;
+}
+
+.article-page .article-container {
+    max-width: 1050px;
+    margin: 0 auto;
+}
+
+.article-page .article-header {
+    max-width: 850px;
+    margin: 0 auto 35px;
+    text-align: center;
+}
+
+.article-page .article-header .article-category {
+    display: inline-block;
+    margin-bottom: 18px;
+    color: #c69b00;
+    font-size: 12px;
+    font-weight: 750;
+    letter-spacing: 2.5px;
+}
+
+.article-page .article-header h1 {
+    margin: 0;
+    color: #202020;
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 750;
+    line-height: 1.2;
+}
+
+.article-page .article-header .article-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 22px;
+    color: #858585;
+    font-size: 13px;
+}
+
+.article-page .article-header .article-meta-divider {
+    color: #c69b00;
+}
+
+.article-page .article-featured-image {
+    width: 100%;
+    height: 480px;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.article-page .article-featured-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.article-page .article-content {
+    max-width: 780px;
+    margin: 45px auto 0;
+}
+
+.article-page .article-content p {
+    margin: 0 0 24px;
+    color: #555;
+    font-size: 16px;
+    line-height: 1.9;
+    text-align: justify;
+}
+
+.article-page .related-articles {
+    max-width: 1250px;
+    margin: 110px auto 0;
+}
+
+.article-page .related-articles .related-articles-heading {
+    max-width: 650px;
+    margin-bottom: 35px;
+}
+
+.article-page .related-articles .related-articles-heading span {
+    display: block;
+    margin-bottom: 12px;
+    color: #c69b00;
+    font-size: 12px;
+    font-weight: 750;
+    letter-spacing: 2px;
+}
+
+.article-page .related-articles .related-articles-heading h2 {
+    margin: 0 0 12px;
+    color: #202020;
+    font-size: 32px;
+    font-weight: 750;
+}
+
+.article-page .related-articles .related-articles-heading p {
+    margin: 0;
+    color: #777;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.article-page .related-articles .related-articles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.article-page .related-articles .related-article-card {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    min-height: 350px;
+    overflow: hidden;
+    padding: 25px;
+    border-radius: 5px;
+    background-position: center;
+    background-size: cover;
+    isolation: isolate;
+}
+
+.article-page .related-articles .related-article-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.85) 0%,
+        rgba(0, 0, 0, 0.35) 55%,
+        rgba(0, 0, 0, 0.08) 100%
+    );
+    transition: background 0.3s ease;
+}
+
+.article-page .related-articles .related-article-card:hover .related-article-overlay {
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.9) 0%,
+        rgba(0, 0, 0, 0.45) 65%,
+        rgba(0, 0, 0, 0.15) 100%
+    );
+}
+
+.article-page .related-articles .related-article-arrow {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 43px;
+    height: 43px;
+    border: none;
+    border-radius: 50%;
+    background: #fff;
+    color: #222;
+    font-size: 25px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.article-page .related-articles .related-article-arrow:hover {
+    transform: rotate(45deg);
+    background: #ffc107;
+}
+
+.article-page .related-articles .related-article-info {
+    position: relative;
+    z-index: 1;
+    color: #fff;
+}
+
+.article-page .related-articles .related-article-info h3 {
+    margin: 0 0 9px;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.article-page .related-articles .related-article-info p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+    .article-page {
+        padding: 55px 5% 80px;
+    }
+
+    .article-page .article-featured-image {
+        height: 380px;
+    }
+
+    .article-page .related-articles .related-articles-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .article-page .related-articles .related-article-card {
+        min-height: 320px;
+    }
+}
+
+@media (max-width: 600px) {
+    .article-page {
+        padding: 40px 5% 65px;
+    }
+
+    .article-page .article-header h1 {
+        font-size: 30px;
+    }
+
+    .article-page .article-header .article-meta {
+        gap: 8px;
+        font-size: 11px;
+    }
+
+    .article-page .article-featured-image {
+        height: 250px;
+    }
+
+    .article-page .article-content {
+        margin-top: 30px;
+    }
+
+    .article-page .article-content p {
+        font-size: 14px;
+        line-height: 1.8;
+        text-align: left;
+    }
+
+    .article-page .related-articles {
+        margin-top: 75px;
+    }
+
+    .article-page .related-articles .related-articles-heading h2 {
+        font-size: 27px;
+    }
+
+    .article-page .related-articles .related-articles-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .article-page .related-articles .related-article-card {
+        min-height: 300px;
+    }
+}
