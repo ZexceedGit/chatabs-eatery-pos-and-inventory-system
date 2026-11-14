@@ -10,7 +10,7 @@ function App() {
 
   return (
     <>
-      <StoryExpanded/>
+      <ReviewForm/>
     </>
   )
 }
