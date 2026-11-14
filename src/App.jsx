@@ -6,13 +6,13 @@ import ReviewForm from './pages/ReviewForm'
 import StoryExpanded from './pages/StoryExpanded'
 import Menu from './pages/Menu'
 import WhyChooseExpanded from './pages/WhyChooseExpanded'
-
+import GalleryExpanded from './pages/GalleryExpanded'
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      <WhyChooseExpanded/>
+      <GalleryExpanded/>
     </>
   )
 }
