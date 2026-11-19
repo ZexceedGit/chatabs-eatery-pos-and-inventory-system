@@ -1,6 +1,6 @@
 
-import '../pages-css/Login.css';
-import Logo from '../assets/images/Logo.png';
+import '../../pages-css/Login.css';
+import Logo from '../../assets/images/Logo.png';
 
 const Login = () => {
     return (

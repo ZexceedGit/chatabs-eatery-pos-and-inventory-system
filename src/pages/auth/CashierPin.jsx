@@ -1,6 +1,6 @@
 
-import '../pages-css/CashierPin.css';
-import Logo from '../assets/images/Logo.png';
+import '../../pages-css/CashierPin.css';
+import Logo from '../../assets/images/Logo.png';
 
 const CashierPin = () => {
     return (
