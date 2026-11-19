@@ -1,12 +1,12 @@
 
-import '../pages-css/StoryExpanded.css'
-import Navbar from '../components/Navbar/Navbar'
-import Footer from '../components/Footer/Footer'
-import MainStory from '../assets/images/Story1.jpg'
-import Story1 from '../assets/images/ExpandedStory1.png'
-import Story2 from '../assets/images/ExpandedStory2.png'
-import Story3 from '../assets/images/ExpandedStory3.png'
-import Story4 from '../assets/images/ExpandedStory4.png'
+import '../../pages-css/StoryExpanded.css'
+import Navbar from '../../components/Navbar/Navbar'
+import Footer from '../../components/Footer/Footer'
+import MainStory from '../../assets/images/Story1.jpg'
+import Story1 from '../../assets/images/ExpandedStory1.png'
+import Story2 from '../../assets/images/ExpandedStory2.png'
+import Story3 from '../../assets/images/ExpandedStory3.png'
+import Story4 from '../../assets/images/ExpandedStory4.png'
 
 const StoryExpanded = () => {
     return (

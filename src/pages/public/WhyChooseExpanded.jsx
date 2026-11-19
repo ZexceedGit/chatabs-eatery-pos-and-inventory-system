@@ -1,7 +1,7 @@
-import '../pages-css/WhyChooseExpanded.css'
-import Navbar from '../components/Navbar/Navbar'
-import Footer from '../components/Footer/Footer'
-import placeholder from '../assets/images/ExpandedStory1.png'
+import '../../pages-css/WhyChooseExpanded.css'
+import Navbar from '../../components/Navbar/Navbar'
+import Footer from '../../components/Footer/Footer'
+import placeholder from '../../assets/images/ExpandedStory1.png'
 
 const relatedArticles = [
     {

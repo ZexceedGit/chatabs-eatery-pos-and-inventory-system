@@ -1,18 +1,17 @@
 import { useState } from 'react'
-import Landing from './pages/Landing'
-import Login from './pages/Login'
-import CashierPin from './pages/CashierPin'
-import ReviewForm from './pages/ReviewForm'
-import StoryExpanded from './pages/StoryExpanded'
-import Menu from './pages/Menu'
-import WhyChooseExpanded from './pages/WhyChooseExpanded'
-import GalleryExpanded from './pages/GalleryExpanded'
+import Landing from './pages/public/Landing'
+import ReviewForm from './pages/public/ReviewForm'
+import StoryExpanded from './pages/public/StoryExpanded'
+import Menu from './pages/public/Menu'
+import WhyChooseExpanded from './pages/public/WhyChooseExpanded'
+import GalleryExpanded from './pages/public/GalleryExpanded'
+import Login from './pages/auth/Login'
+import CashierPin from './pages/auth/CashierPin'
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      <GalleryExpanded/>
+      <Login/>
     </>
   )
 }

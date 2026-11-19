@@ -1,7 +1,7 @@
-import '../pages-css/ReviewForm.css'
-import Navbar from '../components/Navbar/Navbar'
-import Footer from '../components/Footer/Footer'
-import Logo from '../assets/images/Logo.png'
+import '../../pages-css/ReviewForm.css'
+import Navbar from '../../components/Navbar/Navbar'
+import Footer from '../../components/Footer/Footer'
+import Logo from '../../assets/images/Logo.png'
 
 const ReviewForm = () => {
     return (

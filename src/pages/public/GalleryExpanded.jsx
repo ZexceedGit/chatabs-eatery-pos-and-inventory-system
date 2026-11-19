@@ -1,8 +1,8 @@
 
-import '../pages-css/GalleryExpanded.css'
-import Navbar from '../components/Navbar/Navbar'
-import Footer from '../components/Footer/Footer'
-import placeholder from '../assets/images/ExpandedStory1.png'
+import '../../pages-css/GalleryExpanded.css'
+import Navbar from '../../components/Navbar/Navbar'
+import Footer from '../../components/Footer/Footer'
+import placeholder from '../../assets/images/ExpandedStory1.png'
 const years = ['All', '2026', '2025', '2024', '2023', '2022']
 
 const galleryImages = [
