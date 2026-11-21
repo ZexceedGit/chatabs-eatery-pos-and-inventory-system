@@ -6,12 +6,12 @@ import Order from './pages/pos/Order'
 import Table from './pages/pos/Table'
 import Kitchen from './pages/pos/Kitchen'
 import History from './pages/pos/History'
-import PaymentModal from './components/PaymentModal/PaymentModal'
+import SuccessfulPaymentModal from './components/SuccessfulPaymentModal/SuccessfulPaymentModal'
 function App() {
 
   return (
     <>
-      <PaymentModal/>
+      <SuccessfulPaymentModal/>
     </>
   )
 }
