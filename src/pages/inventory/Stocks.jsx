@@ -1,6 +1,6 @@
 import { useState } from "react";
 import InventoryBar from "../../components/InventoryBar/InventoryBar";
-import "../../pages-css/Items.css";
+import "../../pages-css/Stocks.css";
 import {
   Search,
   Plus,
@@ -11,6 +11,9 @@ import {
   X,
   ArrowDownToLine,
   ArrowUpFromLine,
+  CheckCircle2,
+  AlertTriangle,
+  CircleX,
 } from "lucide-react";
 
 const initialItems = [
@@ -127,6 +130,47 @@ const Stocks = () => {
     return matchesSearch && matchesCategory && matchesStatus;
   });
 
+  const totalItems = items.length;
+
+  const inStockCount = items.filter(
+    (item) => getItemStatus(item) === "In Stock"
+  ).length;
+
+  const lowStockCount = items.filter(
+    (item) => getItemStatus(item) === "Low Stock"
+  ).length;
+
+  const outOfStockCount = items.filter(
+    (item) => getItemStatus(item) === "Out of Stock"
+  ).length;
+
+  const overviewStats = [
+    {
+      label: "Total Items",
+      value: totalItems,
+      description: "registered inventory items",
+      icon: Package,
+    },
+    {
+      label: "In Stock",
+      value: inStockCount,
+      description: "items above stock threshold",
+      icon: CheckCircle2,
+    },
+    {
+      label: "Low Stock",
+      value: lowStockCount,
+      description: "items needing restocking",
+      icon: AlertTriangle,
+    },
+    {
+      label: "Out of Stock",
+      value: outOfStockCount,
+      description: "items currently unavailable",
+      icon: CircleX,
+    },
+  ];
+
   const openDetails = (item) => {
     setSelectedItem(item);
     setModal("list");
@@ -237,6 +281,7 @@ const Stocks = () => {
     }
 
     const currentQuantity = Number(selectedItem.quantity);
+
     const newQuantity =
       adjustmentType === "Stock In"
         ? currentQuantity + amount
@@ -258,28 +303,14 @@ const Stocks = () => {
     closeModal();
   };
 
-  const totalItems = items.length;
-
-  const inStockCount = items.filter(
-    (item) => getItemStatus(item) === "In Stock"
-  ).length;
-
-  const lowStockCount = items.filter(
-    (item) => getItemStatus(item) === "Low Stock"
-  ).length;
-
-  const outOfStockCount = items.filter(
-    (item) => getItemStatus(item) === "Out of Stock"
-  ).length;
-
   return (
-    <div className="inventory-layout">
+    <div className="inventory-layout stocks-layout">
       <InventoryBar activePage="Items" />
 
-      <main className="inventory-page inventory-items-page">
-        <header className="inventory-page-header inventory-items-header">
+      <main className="inventory-page stocks-page">
+        <header className="stocks-header">
           <div>
-            <span className="inventory-page-eyebrow">
+            <span className="stocks-eyebrow">
               INVENTORY MANAGEMENT
             </span>
             <h1>Items</h1>
@@ -288,7 +319,7 @@ const Stocks = () => {
 
           <button
             type="button"
-            className="inventory-items-add-button"
+            className="stocks-add-button"
             onClick={openAdd}
           >
             <Plus size={17} />
@@ -296,69 +327,54 @@ const Stocks = () => {
           </button>
         </header>
 
-        <section className="inventory-items-overview">
-          <div className="inventory-items-overview-card">
-            <div className="inventory-items-overview-icon">
-              <Package size={18} />
-            </div>
-            <div>
-              <span>Total Items</span>
-              <strong>{totalItems}</strong>
-            </div>
-          </div>
+        <section className="stocks-overview">
+          {overviewStats.map((stat) => {
+            const Icon = stat.icon;
 
-          <div className="inventory-items-overview-card">
-            <div className="inventory-items-overview-icon overview-green">
-              <Package size={18} />
-            </div>
-            <div>
-              <span>In Stock</span>
-              <strong>{inStockCount}</strong>
-            </div>
-          </div>
+            return (
+              <article className="stocks-overview-card" key={stat.label}>
+                <div className="stocks-overview-top">
+                  <div className="stocks-overview-icon">
+                    <Icon size={20} strokeWidth={1.9} />
+                  </div>
+                </div>
 
-          <div className="inventory-items-overview-card">
-            <div className="inventory-items-overview-icon overview-yellow">
-              <Package size={18} />
-            </div>
-            <div>
-              <span>Low Stock</span>
-              <strong>{lowStockCount}</strong>
-            </div>
-          </div>
+                <div className="stocks-overview-content">
+                  <span>{stat.label}</span>
 
-          <div className="inventory-items-overview-card">
-            <div className="inventory-items-overview-icon overview-red">
-              <Package size={18} />
-            </div>
-            <div>
-              <span>Out of Stock</span>
-              <strong>{outOfStockCount}</strong>
-            </div>
-          </div>
+                  <div className="stocks-overview-value-row">
+                    <h2>{stat.value}</h2>
+                    <p>{stat.description}</p>
+                  </div>
+                </div>
+              </article>
+            );
+          })}
         </section>
 
-        <section className="inventory-items-section">
-          <div className="inventory-items-section-header">
+        <section className="stocks-section">
+          <div className="stocks-section-header">
             <div>
               <h2>Inventory Items</h2>
               <p>View and manage the items recorded in your inventory.</p>
             </div>
 
-            <span className="inventory-items-result-count">
+            <span className="stocks-result-count">
               {filteredItems.length} of {totalItems} items
             </span>
           </div>
 
-          <div className="inventory-items-filters">
-            <div className="inventory-items-search">
+          <div className="stocks-filters">
+            <div className="stocks-search">
               <Search size={17} />
+
               <input
                 type="text"
                 placeholder="Search items..."
                 value={search}
                 onChange={(event) => setSearch(event.target.value)}
               />
+
               {search && (
                 <button
                   type="button"
@@ -370,14 +386,16 @@ const Stocks = () => {
               )}
             </div>
 
-            <div className="inventory-items-select-wrap">
+            <div className="stocks-filter-select">
               <SlidersHorizontal size={15} />
+
               <select
                 value={categoryFilter}
                 onChange={(event) => setCategoryFilter(event.target.value)}
                 aria-label="Filter by category"
               >
                 <option>All Categories</option>
+
                 {categories.map((category) => (
                   <option key={category} value={category}>
                     {category}
@@ -386,7 +404,7 @@ const Stocks = () => {
               </select>
             </div>
 
-            <div className="inventory-items-select-wrap">
+            <div className="stocks-filter-select">
               <select
                 value={statusFilter}
                 onChange={(event) => setStatusFilter(event.target.value)}
@@ -404,7 +422,7 @@ const Stocks = () => {
               statusFilter !== "All Status") && (
               <button
                 type="button"
-                className="inventory-items-clear-filter"
+                className="stocks-clear-filter"
                 onClick={() => {
                   setSearch("");
                   setCategoryFilter("All Categories");
@@ -416,8 +434,8 @@ const Stocks = () => {
             )}
           </div>
 
-          <div className="inventory-items-table-wrap">
-            <table className="inventory-items-table">
+          <div className="stocks-table-wrap">
+            <table className="stocks-table">
               <thead>
                 <tr>
                   <th>Item</th>
@@ -435,35 +453,35 @@ const Stocks = () => {
 
                     return (
                       <tr key={item.id}>
-                        <td>
-                          <div className="inventory-table-item">
-                            <div className="inventory-table-item-icon">
+                        <td data-label="Item">
+                          <div className="stocks-table-item">
+                            <div className="stocks-table-item-icon">
                               <Package size={17} />
                             </div>
                             <strong>{item.name}</strong>
                           </div>
                         </td>
 
-                        <td>
-                          <span className="inventory-table-category">
+                        <td data-label="Category">
+                          <span className="stocks-table-category">
                             {item.category}
                           </span>
                         </td>
 
-                        <td>
-                          <strong className="inventory-table-quantity">
+                        <td data-label="In Stock">
+                          <strong className="stocks-table-quantity">
                             {item.quantity} {item.unit}
                           </strong>
                         </td>
 
-                        <td>
+                        <td data-label="Status">
                           <span
-                            className={`inventory-item-status ${
+                            className={`stocks-status ${
                               status === "In Stock"
-                                ? "status-in-stock"
+                                ? "stocks-status-in-stock"
                                 : status === "Low Stock"
-                                ? "status-low-stock"
-                                : "status-out-stock"
+                                ? "stocks-status-low-stock"
+                                : "stocks-status-out-stock"
                             }`}
                           >
                             <span />
@@ -471,11 +489,11 @@ const Stocks = () => {
                           </span>
                         </td>
 
-                        <td>
-                          <div className="inventory-item-actions">
+                        <td data-label="Actions">
+                          <div className="stocks-item-actions">
                             <button
                               type="button"
-                              className="inventory-item-action"
+                              className="stocks-item-action"
                               onClick={() => openDetails(item)}
                               aria-label={`View ${item.name} details`}
                               title="List"
@@ -486,7 +504,7 @@ const Stocks = () => {
 
                             <button
                               type="button"
-                              className="inventory-item-action"
+                              className="stocks-item-action"
                               onClick={() => openAdjust(item)}
                               aria-label={`Adjust ${item.name} stock`}
                               title="Adjust"
@@ -497,7 +515,7 @@ const Stocks = () => {
 
                             <button
                               type="button"
-                              className="inventory-item-action"
+                              className="stocks-item-action"
                               onClick={() => openEdit(item)}
                               aria-label={`Edit ${item.name}`}
                               title="Edit"
@@ -511,9 +529,9 @@ const Stocks = () => {
                     );
                   })
                 ) : (
-                  <tr>
+                  <tr className="stocks-empty-row">
                     <td colSpan="5">
-                      <div className="inventory-items-empty">
+                      <div className="stocks-empty">
                         <div>
                           <Package size={23} />
                         </div>
@@ -532,14 +550,17 @@ const Stocks = () => {
       </main>
 
       {modal && (
-        <div className="inventory-items-modal-overlay" onClick={closeModal}>
+        <div
+          className="stocks-modal-overlay"
+          onClick={closeModal}
+        >
           <section
-            className="inventory-items-modal"
+            className="stocks-modal"
             role="dialog"
             aria-modal="true"
             onClick={(event) => event.stopPropagation()}
           >
-            <div className="inventory-items-modal-header">
+            <div className="stocks-modal-header">
               <div>
                 <span>INVENTORY ITEM</span>
                 <h2>
@@ -555,7 +576,7 @@ const Stocks = () => {
 
               <button
                 type="button"
-                className="inventory-items-modal-close"
+                className="stocks-modal-close"
                 onClick={closeModal}
                 aria-label="Close modal"
               >
@@ -564,18 +585,19 @@ const Stocks = () => {
             </div>
 
             {modal === "list" && selectedItem && (
-              <div className="inventory-items-details">
-                <div className="inventory-items-details-top">
-                  <div className="inventory-items-details-icon">
+              <div className="stocks-details">
+                <div className="stocks-details-top">
+                  <div className="stocks-details-icon">
                     <Package size={25} />
                   </div>
+
                   <div>
                     <h3>{selectedItem.name}</h3>
                     <span>{selectedItem.category}</span>
                   </div>
                 </div>
 
-                <div className="inventory-items-details-grid">
+                <div className="stocks-details-grid">
                   <div>
                     <span>Current Stock</span>
                     <strong>
@@ -603,7 +625,7 @@ const Stocks = () => {
 
                 <button
                   type="button"
-                  className="inventory-items-modal-primary"
+                  className="stocks-modal-primary"
                   onClick={closeModal}
                 >
                   Done
@@ -613,13 +635,14 @@ const Stocks = () => {
 
             {modal === "adjust" && selectedItem && (
               <form
-                className="inventory-items-form"
+                className="stocks-form"
                 onSubmit={handleAdjustment}
               >
-                <div className="inventory-adjust-item">
-                  <div className="inventory-table-item-icon">
+                <div className="stocks-adjust-item">
+                  <div className="stocks-table-item-icon">
                     <Package size={18} />
                   </div>
+
                   <div>
                     <strong>{selectedItem.name}</strong>
                     <span>
@@ -628,11 +651,11 @@ const Stocks = () => {
                   </div>
                 </div>
 
-                <label className="inventory-items-field-label">
+                <label className="stocks-field-label">
                   Adjustment Type
                 </label>
 
-                <div className="inventory-adjust-type">
+                <div className="stocks-adjust-type">
                   <button
                     type="button"
                     className={
@@ -662,11 +685,12 @@ const Stocks = () => {
                   </button>
                 </div>
 
-                <label className="inventory-items-field-label">
+                <label className="stocks-field-label">
                   Quantity ({selectedItem.unit})
                 </label>
+
                 <input
-                  className="inventory-items-input"
+                  className="stocks-input"
                   type="number"
                   min="0.01"
                   step="any"
@@ -678,11 +702,12 @@ const Stocks = () => {
                   }}
                 />
 
-                <label className="inventory-items-field-label">
+                <label className="stocks-field-label">
                   Reason <span>Optional</span>
                 </label>
+
                 <input
-                  className="inventory-items-input"
+                  className="stocks-input"
                   type="text"
                   placeholder="Enter adjustment reason"
                   value={adjustmentReason}
@@ -692,20 +717,21 @@ const Stocks = () => {
                 />
 
                 {formError && (
-                  <p className="inventory-items-form-error">{formError}</p>
+                  <p className="stocks-form-error">{formError}</p>
                 )}
 
-                <div className="inventory-items-modal-actions">
+                <div className="stocks-modal-actions">
                   <button
                     type="button"
-                    className="inventory-items-modal-cancel"
+                    className="stocks-modal-cancel"
                     onClick={closeModal}
                   >
                     Cancel
                   </button>
+
                   <button
                     type="submit"
-                    className="inventory-items-modal-primary"
+                    className="stocks-modal-primary"
                   >
                     Confirm Adjustment
                   </button>
@@ -715,14 +741,15 @@ const Stocks = () => {
 
             {(modal === "add" || modal === "edit") && (
               <form
-                className="inventory-items-form"
+                className="stocks-form"
                 onSubmit={handleSaveItem}
               >
-                <label className="inventory-items-field-label">
+                <label className="stocks-field-label">
                   Item Name
                 </label>
+
                 <input
-                  className="inventory-items-input"
+                  className="stocks-input"
                   type="text"
                   placeholder="Enter item name"
                   value={form.name}
@@ -731,11 +758,12 @@ const Stocks = () => {
                   }
                 />
 
-                <label className="inventory-items-field-label">
+                <label className="stocks-field-label">
                   Category
                 </label>
+
                 <select
-                  className="inventory-items-input"
+                  className="stocks-input"
                   value={form.category}
                   onChange={(event) =>
                     handleFormChange("category", event.target.value)
@@ -755,13 +783,14 @@ const Stocks = () => {
                   ))}
                 </select>
 
-                <div className="inventory-items-form-row">
+                <div className="stocks-form-row">
                   <div>
-                    <label className="inventory-items-field-label">
+                    <label className="stocks-field-label">
                       Current Quantity
                     </label>
+
                     <input
-                      className="inventory-items-input"
+                      className="stocks-input"
                       type="number"
                       min="0"
                       step="any"
@@ -773,11 +802,12 @@ const Stocks = () => {
                   </div>
 
                   <div>
-                    <label className="inventory-items-field-label">
+                    <label className="stocks-field-label">
                       Unit
                     </label>
+
                     <input
-                      className="inventory-items-input"
+                      className="stocks-input"
                       type="text"
                       placeholder="kg, pcs, L"
                       value={form.unit}
@@ -788,11 +818,12 @@ const Stocks = () => {
                   </div>
                 </div>
 
-                <label className="inventory-items-field-label">
+                <label className="stocks-field-label">
                   Low Stock Threshold
                 </label>
+
                 <input
-                  className="inventory-items-input"
+                  className="stocks-input"
                   type="number"
                   min="0"
                   step="any"
@@ -803,20 +834,21 @@ const Stocks = () => {
                 />
 
                 {formError && (
-                  <p className="inventory-items-form-error">{formError}</p>
+                  <p className="stocks-form-error">{formError}</p>
                 )}
 
-                <div className="inventory-items-modal-actions">
+                <div className="stocks-modal-actions">
                   <button
                     type="button"
-                    className="inventory-items-modal-cancel"
+                    className="stocks-modal-cancel"
                     onClick={closeModal}
                   >
                     Cancel
                   </button>
+
                   <button
                     type="submit"
-                    className="inventory-items-modal-primary"
+                    className="stocks-modal-primary"
                   >
                     {modal === "add" ? "Add Item" : "Save Changes"}
                   </button>

@@ -1,19 +1,31 @@
 .inventory-bar {
-  position: relative;
-  z-index: 20;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  flex: 0 0 218px;
+  align-self: flex-start;
   width: 218px;
   min-width: 218px;
   height: 100vh;
+  height: 100dvh;
+  max-height: 100vh;
+  max-height: 100dvh;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   padding: 22px 15px 16px;
   background: #fff;
   border-right: 1px solid #e8e8e8;
   overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .inventory-bar::-webkit-scrollbar {
   display: none;
+}
+
+.inventory-bar {
+  scrollbar-width: none;
 }
 
 .inventory-bar-header {
@@ -175,12 +187,17 @@
   white-space: nowrap;
 }
 
+/* Tablet */
+
 @media (max-width: 900px) {
   .inventory-bar {
+    flex-basis: 190px;
     width: 190px;
     min-width: 190px;
   }
 }
+
+/* Mobile */
 
 @media (max-width: 650px) {
   .inventory-layout {
@@ -196,12 +213,17 @@
   }
 
   .inventory-bar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
     width: 100%;
     min-width: 0;
     height: auto;
     max-height: 100vh;
+    max-height: 100dvh;
     display: block;
-    flex: 0 0 auto;
+    flex: none;
+    align-self: stretch;
     padding: 12px 17px;
     overflow: visible;
     border-right: none;
@@ -262,6 +284,7 @@
     right: 0;
     z-index: 30;
     max-height: calc(100vh - 65px);
+    max-height: calc(100dvh - 65px);
     padding: 10px 17px 16px;
     overflow-y: auto;
     background: #fff;
@@ -301,32 +324,32 @@
     display: inline;
   }
 
- .inventory-bar-bottom {
-  width: 100%;
-  margin-top: 12px;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  gap: 8px;
-}
+  .inventory-bar-bottom {
+    width: 100%;
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
 
-.inventory-bar-bottom .inventory-bar-divider {
-  display: none;
-}
+  .inventory-bar-bottom .inventory-bar-divider {
+    display: none;
+  }
 
-.inventory-bar-bottom > .inventory-bar-link {
-  width: 100%;
-  min-width: 0;
-  flex-shrink: 0;
-}
+  .inventory-bar-bottom > .inventory-bar-link {
+    width: 100%;
+    min-width: 0;
+    flex-shrink: 0;
+  }
 
-.inventory-bar-user {
-  width: 100%;
-  min-width: 0;
-  flex: none;
-  margin-top: 0;
-  padding: 10px 9px;
-} 
+  .inventory-bar-user {
+    width: 100%;
+    min-width: 0;
+    flex: none;
+    margin-top: 0;
+    padding: 10px 9px;
+  }
 
   .inventory-bar-avatar {
     width: 31px;

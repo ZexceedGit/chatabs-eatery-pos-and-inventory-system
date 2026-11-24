@@ -4,11 +4,7 @@ import {
   LayoutDashboard,
   Package,
   Layers3,
-  ArrowDownToLine,
-  ArrowUpFromLine,
-  ClipboardList,
-  BarChart3,
-  Settings,
+  ShoppingBasket,
   Menu,
   X,
 } from "lucide-react";
@@ -18,10 +14,7 @@ const navigationItems = [
   { label: "Dashboard", icon: LayoutDashboard },
   { label: "Items", icon: Package },
   { label: "Categories", icon: Layers3 },
-  { label: "Stock In", icon: ArrowDownToLine },
-  { label: "Stock Out", icon: ArrowUpFromLine },
-  { label: "Stock History", icon: ClipboardList },
-  { label: "Reports", icon: BarChart3 },
+  { label: "Market List", icon: ShoppingBasket },
 ];
 
 const InventoryBar = ({ activePage = "Dashboard" }) => {
@@ -80,17 +73,6 @@ const InventoryBar = ({ activePage = "Dashboard" }) => {
         </nav>
 
         <div className="inventory-bar-bottom">
-          <div className="inventory-bar-divider" />
-
-          <button
-            type="button"
-            className="inventory-bar-link"
-            onClick={closeMenu}
-          >
-            <Settings size={18} strokeWidth={1.9} />
-            <span>Settings</span>
-          </button>
-
           <div className="inventory-bar-user">
             <div className="inventory-bar-avatar">CA</div>
             <div className="inventory-bar-user-info">
