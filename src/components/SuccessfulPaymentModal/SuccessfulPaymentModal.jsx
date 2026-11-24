@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import {
   X,
@@ -7,10 +6,6 @@ import {
   Mail,
   ShoppingBag,
   ReceiptText,
-  CalendarDays,
-  Clock3,
-  Table2,
-  UserRound,
   Banknote,
   Wallet,
   CreditCard,
@@ -321,16 +316,6 @@ const SuccessfulPaymentModal = ({
                 <strong>
                   {orderDate} · {orderTime}
                 </strong>
-              </div>
-
-              <div>
-                <span>CUSTOMER</span>
-                <strong>{order.customer || "Walk-in Customer"}</strong>
-              </div>
-
-              <div>
-                <span>TABLE / CHANNEL</span>
-                <strong>{order.table || "Takeout"}</strong>
               </div>
             </div>
 

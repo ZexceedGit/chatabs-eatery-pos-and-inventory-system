@@ -14,9 +14,11 @@
 .successful-payment-modal {
   position: relative;
   width: min(1000px, calc(100vw - 40px));
-  max-height: calc(100vh - 40px);
+  height: min(820px, calc(100vh - 40px));
+  min-height: 0;
   display: grid;
-  grid-template-columns: 0.92fr 1.08fr;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  grid-template-rows: minmax(0, 1fr);
   overflow: hidden;
   background: #fff;
   border: 1px solid #e6eae6;
@@ -62,13 +64,16 @@
 
 .successful-payment-left {
   min-width: 0;
+  min-height: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   padding: 48px 29px 30px;
+  overflow-y: auto;
   background: #f0f8f1;
   text-align: center;
+  overscroll-behavior: contain;
 }
 
 .successful-payment-success-icon {
@@ -77,6 +82,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
   margin-bottom: 17px;
   background: #31945a;
   border: 1px solid #29834e;
@@ -235,9 +241,36 @@
 
 .successful-payment-right {
   min-width: 0;
+  min-height: 0;
+  height: 100%;
   padding: 27px 30px;
+  overflow-x: hidden;
   overflow-y: auto;
   background: #fafafa;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  scrollbar-color: #d2d2d2 transparent;
+}
+
+.successful-payment-right::-webkit-scrollbar,
+.successful-payment-left::-webkit-scrollbar {
+  width: 5px;
+}
+
+.successful-payment-right::-webkit-scrollbar-track,
+.successful-payment-left::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.successful-payment-right::-webkit-scrollbar-thumb {
+  background: #d2d2d2;
+  border-radius: 10px;
+}
+
+.successful-payment-left::-webkit-scrollbar-thumb {
+  background: #d2e5d5;
+  border-radius: 10px;
 }
 
 .successful-payment-receipt-heading {
@@ -318,9 +351,9 @@
 }
 
 .successful-payment-receipt-meta {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 11px 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
   padding: 13px 0;
   border-top: 1px dashed #dedbd2;
   border-bottom: 1px dashed #dedbd2;
@@ -329,14 +362,15 @@
 .successful-payment-receipt-meta > div {
   min-width: 0;
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
-  gap: 6px;
+  gap: 12px;
 }
 
 .successful-payment-receipt-meta > div > span {
+  flex-shrink: 0;
   color: #999;
-  font-size: 8px;
+  font-size: 9px;
   white-space: nowrap;
 }
 
@@ -344,7 +378,7 @@
   min-width: 0;
   overflow-wrap: anywhere;
   color: #333;
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 600;
   text-align: right;
 }
@@ -576,16 +610,23 @@
 
   .successful-payment-modal {
     width: 100%;
+    height: auto;
     max-height: calc(100vh - 24px);
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    overflow-x: hidden;
     overflow-y: auto;
   }
 
   .successful-payment-left {
+    min-height: auto;
+    overflow: visible;
     padding: 45px 25px 25px;
   }
 
   .successful-payment-right {
+    height: auto;
+    min-height: auto;
     padding: 23px 20px;
     overflow: visible;
   }
@@ -620,11 +661,6 @@
 
   .successful-payment-receipt {
     padding: 20px 15px 17px;
-  }
-
-  .successful-payment-receipt-meta {
-    grid-template-columns: 1fr;
-    gap: 9px;
   }
 }
 
