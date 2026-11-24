@@ -7,11 +7,13 @@ import Table from './pages/pos/Table'
 import Kitchen from './pages/pos/Kitchen'
 import History from './pages/pos/History'
 import SuccessfulPaymentModal from './components/SuccessfulPaymentModal/SuccessfulPaymentModal'
+import InventoryBar from './components/InventoryBar/InventoryBar'
+import Dashboard from './pages/inventory/Dashboard'
 function App() {
 
   return (
     <>
-      <SuccessfulPaymentModal/>
+      <Dashboard/>
     </>
   )
 }
