@@ -1,0 +1,834 @@
+.customer-reviews-management-page {
+  display: flex;
+  min-height: 100vh;
+  background: #f6f6f6;
+  color: #242424;
+}
+
+.customer-reviews-management-page .customer-reviews-management-main {
+  flex: 1;
+  min-width: 0;
+  padding: 32px;
+}
+
+.customer-reviews-management-container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.customer-reviews-management-container .customer-reviews-management-header {
+  margin-bottom: 25px;
+}
+
+.customer-reviews-management-container .customer-reviews-management-eyebrow {
+  display: inline-block;
+  margin-bottom: 8px;
+  color: #999;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.1px;
+}
+
+.customer-reviews-management-header h1 {
+  margin: 0;
+  color: #202020;
+  font-size: 27px;
+  font-weight: 700;
+}
+
+.customer-reviews-management-header p {
+  margin: 8px 0 0;
+  color: #777;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.customer-reviews-management-container .customer-reviews-management-queue {
+  margin-bottom: 24px;
+  padding: 22px;
+  background: #fff;
+  border: 1px solid #eaeaea;
+  border-radius: 9px;
+}
+
+.customer-reviews-management-queue .customer-reviews-management-queue-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 19px;
+}
+
+.customer-reviews-management-queue-header h2 {
+  margin: 0;
+  color: #292929;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.customer-reviews-management-queue-header p {
+  margin: 6px 0 0;
+  color: #888;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.customer-reviews-management-queue-header .customer-reviews-management-eyebrow {
+  margin-bottom: 7px;
+}
+
+.customer-reviews-management-queue-header .customer-reviews-management-queue-count {
+  flex-shrink: 0;
+  padding: 7px 11px;
+  color: #946b19;
+  font-size: 11px;
+  font-weight: 600;
+  background: #fff4d8;
+  border-radius: 20px;
+}
+
+.customer-reviews-management-queue .customer-reviews-management-queue-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.customer-reviews-management-queue-list .customer-reviews-management-queue-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  min-width: 0;
+  padding: 16px;
+  background: #fcfcfc;
+  border: 1px solid #ededed;
+  border-radius: 7px;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.customer-reviews-management-queue-list .customer-reviews-management-queue-item:hover {
+  background: #fffdf7;
+  border-color: #eadba9;
+}
+
+.customer-reviews-management-queue-item .customer-reviews-management-queue-customer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.customer-reviews-management-queue-customer .customer-reviews-management-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  flex-shrink: 0;
+  color: #755d20;
+  font-size: 11px;
+  font-weight: 700;
+  background: #fff2c9;
+  border-radius: 50%;
+}
+
+.customer-reviews-management-queue-customer > div:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+
+.customer-reviews-management-queue-customer strong {
+  color: #383838;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.customer-reviews-management-queue-customer span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #999;
+  font-size: 10px;
+}
+
+.customer-reviews-management-queue-item .customer-reviews-management-stars {
+  display: flex;
+  gap: 2px;
+  color: #e5ad32;
+}
+
+.customer-reviews-management-queue-item .customer-reviews-management-queue-message {
+  display: -webkit-box;
+  min-height: 58px;
+  margin: 0;
+  overflow: hidden;
+  color: #777;
+  font-size: 12px;
+  line-height: 1.65;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.customer-reviews-management-queue-item .customer-reviews-management-queue-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 32px;
+  margin-top: auto;
+  padding: 0 11px;
+  color: #333;
+  font-size: 11px;
+  font-weight: 600;
+  background: #fff7df;
+  border: 1px solid #f1e2b4;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.customer-reviews-management-queue-item .customer-reviews-management-queue-button:hover {
+  background: #ffefc1;
+  border-color: #e7d18d;
+}
+
+.customer-reviews-management-queue .customer-reviews-management-queue-empty {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 18px;
+  background: #f9faf9;
+  border: 1px solid #e7eee9;
+  border-radius: 7px;
+}
+
+.customer-reviews-management-queue-empty .customer-reviews-management-queue-empty-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  color: #39845b;
+  background: #e9f7ef;
+  border-radius: 50%;
+}
+
+.customer-reviews-management-queue-empty strong {
+  color: #333;
+  font-size: 12px;
+}
+
+.customer-reviews-management-queue-empty p {
+  margin: 4px 0 0;
+  color: #888;
+  font-size: 11px;
+}
+
+.customer-reviews-management-container .customer-reviews-management-content {
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #eaeaea;
+  border-radius: 9px;
+}
+
+.customer-reviews-management-content .customer-reviews-management-content-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 22px 22px 18px;
+}
+
+.customer-reviews-management-content-header h2 {
+  margin: 0;
+  color: #292929;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.customer-reviews-management-content-header p {
+  margin: 6px 0 0;
+  color: #888;
+  font-size: 12px;
+}
+
+.customer-reviews-management-content-header .customer-reviews-management-search {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  width: 270px;
+  height: 38px;
+  padding: 0 12px;
+  color: #999;
+  background: #fafafa;
+  border: 1px solid #e8e8e8;
+  border-radius: 6px;
+}
+
+.customer-reviews-management-search input {
+  width: 100%;
+  min-width: 0;
+  padding: 0;
+  color: #333;
+  font: inherit;
+  font-size: 12px;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.customer-reviews-management-search input::placeholder {
+  color: #aaa;
+}
+
+.customer-reviews-management-content .customer-reviews-management-filters {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0 22px 16px;
+  border-bottom: 1px solid #ededed;
+}
+
+.customer-reviews-management-filters .customer-reviews-management-filter-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 32px;
+  padding: 0 12px;
+  color: #777;
+  font-size: 12px;
+  font-weight: 600;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.customer-reviews-management-filters .customer-reviews-management-filter-button:hover {
+  color: #333;
+  background: #f7f7f7;
+}
+
+.customer-reviews-management-filters .customer-reviews-management-filter-button.active {
+  color: #242424;
+  background: #fff7df;
+  border-color: #f5e3a9;
+}
+
+.customer-reviews-management-filter-button .customer-reviews-management-filter-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  color: #7e5d12;
+  font-size: 10px;
+  background: #f9e9b9;
+  border-radius: 20px;
+}
+
+.customer-reviews-management-content .customer-reviews-management-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.customer-reviews-management-table-wrapper .customer-reviews-management-table {
+  width: 100%;
+  min-width: 900px;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.customer-reviews-management-table thead {
+  background: #fafafa;
+}
+
+.customer-reviews-management-table th {
+  height: 43px;
+  padding: 0 16px;
+  color: #858585;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.45px;
+  white-space: nowrap;
+}
+
+.customer-reviews-management-table th:first-child,
+.customer-reviews-management-table td:first-child {
+  padding-left: 22px;
+}
+
+.customer-reviews-management-table td {
+  height: 74px;
+  padding: 12px 16px;
+  border-top: 1px solid #f0f0f0;
+  vertical-align: middle;
+}
+
+.customer-reviews-management-table .customer-reviews-management-customer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 125px;
+}
+
+.customer-reviews-management-customer .customer-reviews-management-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  color: #755d20;
+  font-size: 11px;
+  font-weight: 700;
+  background: #fff2c9;
+  border-radius: 50%;
+}
+
+.customer-reviews-management-customer strong {
+  color: #383838;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.customer-reviews-management-table .customer-reviews-management-message-preview {
+  display: -webkit-box;
+  max-width: 350px;
+  margin: 0;
+  overflow: hidden;
+  color: #777;
+  font-size: 12px;
+  line-height: 1.6;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.customer-reviews-management-table .customer-reviews-management-stars {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  color: #e5ad32;
+  white-space: nowrap;
+}
+
+.customer-reviews-management-table .customer-reviews-management-date {
+  color: #777;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.customer-reviews-management-table .customer-reviews-management-status,
+.customer-reviews-management-modal .customer-reviews-management-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 23px;
+  padding: 3px 9px;
+  font-size: 10px;
+  font-weight: 700;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.customer-reviews-management-status.pending {
+  color: #946b19;
+  background: #fff4d8;
+}
+
+.customer-reviews-management-status.published {
+  color: #347a50;
+  background: #e8f6ed;
+}
+
+.customer-reviews-management-status.hidden {
+  color: #777;
+  background: #eeeeee;
+}
+
+.customer-reviews-management-table .customer-reviews-management-view-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 31px;
+  padding: 0 10px;
+  color: #555;
+  font-size: 11px;
+  font-weight: 600;
+  background: #fff;
+  border: 1px solid #e7e7e7;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.customer-reviews-management-table .customer-reviews-management-view-button:hover {
+  color: #252525;
+  background: #f8f8f8;
+  border-color: #ccc;
+}
+
+.customer-reviews-management-content .customer-reviews-management-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 240px;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.customer-reviews-management-empty .customer-reviews-management-empty-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 13px;
+  color: #888;
+  background: #f4f4f4;
+  border-radius: 50%;
+}
+
+.customer-reviews-management-empty h3 {
+  margin: 0;
+  color: #333;
+  font-size: 14px;
+}
+
+.customer-reviews-management-empty p {
+  max-width: 320px;
+  margin: 7px 0 0;
+  color: #888;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.customer-reviews-management-content .customer-reviews-management-table-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 14px 22px;
+  color: #999;
+  font-size: 11px;
+  border-top: 1px solid #ededed;
+}
+
+.customer-reviews-management-page .customer-reviews-management-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(20, 20, 20, 0.45);
+}
+
+.customer-reviews-management-modal-overlay .customer-reviews-management-modal {
+  width: 100%;
+  max-width: 570px;
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+}
+
+.customer-reviews-management-modal .customer-reviews-management-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 24px;
+  border-bottom: 1px solid #ededed;
+}
+
+.customer-reviews-management-modal-header .customer-reviews-management-eyebrow {
+  display: inline-block;
+  margin-bottom: 6px;
+  color: #999;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.customer-reviews-management-modal-header h2 {
+  margin: 0;
+  color: #252525;
+  font-size: 19px;
+}
+
+.customer-reviews-management-modal-header .customer-reviews-management-modal-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  color: #777;
+  background: #f6f6f6;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.customer-reviews-management-modal-header .customer-reviews-management-modal-close:hover {
+  color: #222;
+  background: #ededed;
+}
+
+.customer-reviews-management-modal .customer-reviews-management-modal-body {
+  padding: 24px;
+}
+
+.customer-reviews-management-modal-body .customer-reviews-management-detail-customer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ededed;
+}
+
+.customer-reviews-management-detail-customer .customer-reviews-management-avatar.large {
+  width: 45px;
+  height: 45px;
+  font-size: 13px;
+}
+
+.customer-reviews-management-detail-customer div:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.customer-reviews-management-detail-customer strong {
+  color: #333;
+  font-size: 14px;
+}
+
+.customer-reviews-management-detail-customer span {
+  color: #999;
+  font-size: 11px;
+}
+
+.customer-reviews-management-modal-body .customer-reviews-management-detail-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 14px;
+  padding: 20px 0;
+  border-bottom: 1px solid #ededed;
+}
+
+.customer-reviews-management-detail-meta > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  min-width: 0;
+}
+
+.customer-reviews-management-detail-meta > div > span:first-child {
+  color: #999;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.customer-reviews-management-detail-meta > div > strong {
+  color: #444;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.customer-reviews-management-detail-meta .customer-reviews-management-stars {
+  display: flex;
+  gap: 2px;
+  color: #e5ad32;
+}
+
+.customer-reviews-management-modal-body .customer-reviews-management-detail-message {
+  padding-top: 20px;
+}
+
+.customer-reviews-management-detail-message > span {
+  color: #888;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.customer-reviews-management-detail-message p {
+  margin: 11px 0 0;
+  padding: 16px;
+  color: #555;
+  font-size: 13px;
+  line-height: 1.8;
+  background: #fafafa;
+  border: 1px solid #ededed;
+  border-radius: 7px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.customer-reviews-management-modal .customer-reviews-management-modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 17px 24px;
+  border-top: 1px solid #ededed;
+}
+
+.customer-reviews-management-modal-footer button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 38px;
+  padding: 0 13px;
+  font-size: 11px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.customer-reviews-management-modal-footer .customer-reviews-management-delete-button {
+  color: #b34b4b;
+  background: #fff;
+  border: 1px solid #f0d7d7;
+}
+
+.customer-reviews-management-modal-footer .customer-reviews-management-delete-button:hover {
+  background: #fff5f5;
+}
+
+.customer-reviews-management-modal-footer .customer-reviews-management-hide-button {
+  color: #555;
+  background: #f5f5f5;
+  border: 1px solid #e6e6e6;
+}
+
+.customer-reviews-management-modal-footer .customer-reviews-management-hide-button:hover {
+  background: #ededed;
+}
+
+.customer-reviews-management-modal-footer .customer-reviews-management-publish-button {
+  color: #292929;
+  background: #ffc107;
+  border: 1px solid #ffc107;
+}
+
+.customer-reviews-management-modal-footer .customer-reviews-management-publish-button:hover {
+  background: #f3b900;
+  border-color: #f3b900;
+}
+
+@media (max-width: 1050px) {
+  .customer-reviews-management-page .customer-reviews-management-main {
+    padding: 25px;
+  }
+
+  .customer-reviews-management-queue .customer-reviews-management-queue-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .customer-reviews-management-page {
+    flex-direction: column;
+  }
+
+  .customer-reviews-management-page .customer-reviews-management-main {
+    width: 100%;
+    padding: 22px 16px;
+  }
+
+  .customer-reviews-management-queue .customer-reviews-management-queue-list {
+    grid-template-columns: 1fr;
+  }
+
+  .customer-reviews-management-queue .customer-reviews-management-queue-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .customer-reviews-management-content .customer-reviews-management-content-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .customer-reviews-management-content-header .customer-reviews-management-search {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .customer-reviews-management-content .customer-reviews-management-filters {
+    overflow-x: auto;
+    padding-bottom: 13px;
+  }
+
+  .customer-reviews-management-filters .customer-reviews-management-filter-button {
+    flex-shrink: 0;
+  }
+
+  .customer-reviews-management-modal-body .customer-reviews-management-detail-meta {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .customer-reviews-management-page .customer-reviews-management-main {
+    padding: 20px 12px;
+  }
+
+  .customer-reviews-management-header h1 {
+    font-size: 23px;
+  }
+
+  .customer-reviews-management-container .customer-reviews-management-queue {
+    padding: 16px;
+  }
+
+  .customer-reviews-management-content .customer-reviews-management-content-header {
+    padding: 18px 15px;
+  }
+
+  .customer-reviews-management-content .customer-reviews-management-filters {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+
+  .customer-reviews-management-table th:first-child,
+  .customer-reviews-management-table td:first-child {
+    padding-left: 15px;
+  }
+
+  .customer-reviews-management-modal-overlay .customer-reviews-management-modal {
+    max-height: calc(100vh - 24px);
+  }
+
+  .customer-reviews-management-modal .customer-reviews-management-modal-header,
+  .customer-reviews-management-modal .customer-reviews-management-modal-body {
+    padding: 18px;
+  }
+
+  .customer-reviews-management-modal .customer-reviews-management-modal-footer {
+    align-items: stretch;
+    flex-direction: column-reverse;
+    padding: 15px 18px;
+  }
+
+  .customer-reviews-management-modal-footer button {
+    width: 100%;
+  }
+
+  .customer-reviews-management-modal-body .customer-reviews-management-detail-meta {
+    grid-template-columns: 1fr 1fr;
+  }
+}

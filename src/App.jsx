@@ -11,11 +11,17 @@ import Dashboard from './pages/inventory/Dashboard'
 import Stocks from './pages/inventory/Stocks'
 import Categories from './pages/inventory/Categories'
 import MarketList from './pages/inventory/MarketList'
+import Content from './pages/inventory/Content'
+// import Landing from './pages/public/Landing'
+
+// import ReviewForm from './pages/public/ReviewForm'
+import CustomerReviewsManagement from './pages/inventory/CustomerReviewsManagement'
+import ActivityLog from './pages/inventory/ActivityLog'
 function App() {
 
   return (
     <>
-      <MarketList/>
+      <ActivityLog/>
     </>
   )
 }
